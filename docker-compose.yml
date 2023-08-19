@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build:
+      context: ./flask_app
+    ports:
+      - "3000:5000"
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:latest"
+
+  redis_updater:
+    build:
+      context: ./redis_updater
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASS: ${POSTGRES_PASS}
+    depends_on:
+      - redis
+      - postgres
+  
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./postgres_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
