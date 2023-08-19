@@ -1,7 +1,0 @@
-{
-  "name": "Testing stuff",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "flask_app",
-  "workspaceFolder": "/workspace",
-  "forwardPorts": [3000]
-}
