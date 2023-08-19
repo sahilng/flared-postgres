@@ -1,0 +1,7 @@
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "flask_app",
+	"workspaceFolder": "/app/",
+	"forwardPorts": [3000]
+}

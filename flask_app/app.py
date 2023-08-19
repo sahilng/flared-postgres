@@ -12,7 +12,7 @@ def index():
         data = json.loads(json_data.decode("utf-8"))
         return jsonify(data)
     else:
-        return jsonify({"error": "Data not found"}), 404
+        return jsonify({"error": "Data not found, refresh in a few moments."}), 404
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

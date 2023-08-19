@@ -33,8 +33,12 @@ def fetch_data():
     return json.dumps(json_data)
 
 while True:
-    redis_client = redis.StrictRedis(host=REDIS_HOST, port=6379, db=0)
-    json_data = fetch_data()
-    if json_data:
-        redis_client.set("my_key", json_data)
-    time.sleep(10)  # Run every 10 seconds, adjust as needed
+    try:
+        redis_client = redis.StrictRedis(host=REDIS_HOST, port=6379, db=0)
+        json_data = fetch_data()
+        if json_data:
+            redis_client.set("my_key", json_data)
+        time.sleep(10)  # Run every 10 seconds, adjust as needed
+    except:
+        time.sleep(10)
+        continue
