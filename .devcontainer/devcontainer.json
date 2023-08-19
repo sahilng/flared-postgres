@@ -1,10 +1,5 @@
 {
-    "name": "My Project Dev Container",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "flask_app",  // This is the service you want your VS Code environment to run inside.
-    "workspaceFolder": "/workspace",
-    "forwardPorts": [3000],
-    "settings": {
-      "terminal.integrated.shell.linux": "/bin/bash"
-    }
+  "name": "Testing stuff",
+  "dockerComposeFile": "../docker-compose.yml",
+  "forwardPorts": [3000]
 }
