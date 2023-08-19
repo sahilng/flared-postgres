@@ -22,13 +22,11 @@ def fetch_data():
 
     # Fetch data from your Postgres
     cur = conn.cursor()
-    cur.execute("SELECT * FROM my_table;")  # This is just an example, modify as needed
+    cur.execute("SELECT now()::text, * FROM my_table;")  # This is just an example, modify as needed
     data = cur.fetchall()
     
     # Convert data to JSON and include the last update time
-    current_time = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ')
     json_data = {
-        'last_updated': current_time,
         'data': data
     }
     
