@@ -4,8 +4,6 @@ import json
 import pandas as pd
 from datetime import datetime, timezone, timedelta
 
-from datetime import datetime, timezone, timedelta
-
 def custom_strptime(date_str):
     base_date_str, offset = date_str[:-3], date_str[-3:]
     sign = 1 if offset[0] == '+' else -1
@@ -29,9 +27,9 @@ def index():
         update_time = data['data'][0][0]
         update_time_dt = custom_strptime(update_time)
         update_time_human_readable = update_time_dt.strftime('%B %-d, %Y at %-I:%M:%S%p UTC')
-        return "Redis last updated from Postgres at: <b>" + update_time_human_readable + "</b>"
+        return "Redis last updated from Postgres at: <b>" + update_time_human_readable + "</b><br>"
     else:
-        return "Data not found, refresh in a few moments."
+        return "Data not found, refresh in a few moments.<br>"
     
 @app.route('/api')
 def api():
