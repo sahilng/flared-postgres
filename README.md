@@ -6,4 +6,8 @@ Example use case: A data API for a frontend charting tool, where data can be a l
 
 Can be run with docker compose, or in a VS Code Dev Container / GitHub Codespace
 
+```sh
+docker compose up -d
+```
+
 Runs on port 3000 by default
